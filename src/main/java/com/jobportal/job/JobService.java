@@ -1,0 +1,16 @@
+package com.jobportal.job;
+
+import java.util.List;
+
+public interface JobService {
+	List<Job> findAll();
+	
+	Long createJob(Job job);
+	
+	Job getJobById(Long id);
+	
+	boolean deleteJobById(Long id);
+	
+	boolean updateJob(Long id, Job job);
+
+}
