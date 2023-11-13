@@ -70,44 +70,4 @@ public class JobController {
 	}
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	@GetMapping("/jobs")
-	public List<Job> allJobs() {
-		return jobService.findAll();
-	}
-	
-	@PostMapping("/jobs")
-	public String addJobs(@RequestBody Job job) {
-		Long id = jobService.createJob(job);
-		return "Job added successfully with id "+id;
-	}
-
-	
-	@GetMapping("/jobs/{id}")
-	public Job getJob(@PathVariable Long id) {
-		Job job = jobService.getJobById(id);
-		if(job != null) {
-			return job;
-		}
-		return new Job(0L, "test","No job found" , "0000", "0000", "India");
-				
-				
-	}
-*/
 }
