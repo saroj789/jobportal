@@ -30,13 +30,13 @@ public class JobServiceImpl implements JobService {
 
 	@Override
 	public Job getJobById(Long id) {
-		Job job = jobRepository.findById(id).orElse(null) ; // findById returns Optional type
+		Job job = this.jobRepository.findById(id).orElse(null) ; // findById returns Optional type
 		return job;
 	}
 
 	public boolean deleteJobById(Long id) {
 		try {
-			jobRepository.deleteById(id);
+			this.jobRepository.deleteById(id);
 			return true;
 		}catch (Exception e) {
 			return false;
@@ -45,7 +45,7 @@ public class JobServiceImpl implements JobService {
 	}
 
 	public boolean updateJob(Long id, Job newJob) {
-		Job job = jobRepository.findById(id).orElse(null);
+		Job job = this.jobRepository.findById(id).orElse(null);
 				
 		if (job != null )
 			 {
@@ -54,6 +54,7 @@ public class JobServiceImpl implements JobService {
 				job.setMaxSalary(newJob.getMaxSalary());
 				job.setMinSalary(newJob.getMinSalary());
 				job.setLocation(newJob.getLocation());
+				job.setCompany(newJob.getCompany());
 				this.jobRepository.save(job);
 				return true;
 			}

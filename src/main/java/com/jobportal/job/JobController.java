@@ -22,7 +22,7 @@ import com.jobportal.job.impl.JobServiceImpl;
 public class JobController {
 	
 	@Autowired
-	private JobServiceImpl jobService;
+	private JobService jobService;
 	
 	@GetMapping
 	public  ResponseEntity<List<Job>> allJobs() {
