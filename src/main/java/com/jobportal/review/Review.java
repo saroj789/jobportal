@@ -1,17 +1,13 @@
-package com.jobportal.company;
-
-import java.util.List;
+package com.jobportal.review;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jobportal.job.Job;
-import com.jobportal.review.Review;
+import com.jobportal.company.Company;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,22 +16,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company {
-	
+public class Review {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String title;
 	private String description;
+	private double rating;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
-	private List<Job> jobs;
+	@ManyToOne
+	private Company company;
 	
-	//@JsonIgnore
-	@OneToMany(mappedBy = "company",cascade = CascadeType.ALL)
-	private List<Review> reviews;
-	
-	
-
 }
